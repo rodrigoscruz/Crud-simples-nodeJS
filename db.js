@@ -11,4 +11,10 @@ async function connect(){
 
 connect();
 
-module.exports = {}
+async function selectUsers(){
+    const conn = await connect();
+    const [rows] = await conn.query('SELECT * FROM user;');
+    return rows;
+}
+
+module.exports = {selectUsers}
