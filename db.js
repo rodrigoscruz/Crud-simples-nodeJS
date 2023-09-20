@@ -17,4 +17,11 @@ async function selectUsers(){
     return rows;
 }
 
-module.exports = {selectUsers}
+async function insertUser(user){
+    const conn = await connect();
+    const sql = 'INSERT INTO user(name, pass) VALUES (?,?);';
+    const values = [user.name, user.pass];
+    await conn.query(sql, values);
+}
+
+module.exports = {selectUsers, insertUser}
