@@ -24,4 +24,11 @@ async function insertUser(user){
     await conn.query(sql, values);
 }
 
-module.exports = {selectUsers, insertUser}
+async function updateUser(id, user){
+    const conn = await connect();
+    const sql = 'UPDATE user SET name=?, pass=? WHERE iduser=?;';
+    const values = [user.name, user.pass, id];
+    await conn.query(sql, values);
+}
+
+module.exports = {selectUsers, insertUser, updateUser}
