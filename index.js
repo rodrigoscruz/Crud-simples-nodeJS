@@ -5,8 +5,11 @@
     //console.log('INSERT INTO USER');
     //await db.insertUser({name:"Beltrano", pass: "654"});
 
-    console.log('UPDATE USER');
-    await db.updateUser(4, {name:"Beltrano", pass: "000"});
+    //console.log('UPDATE USER');
+    //await db.updateUser(4, {name:"Beltrano", pass: "000"});
+
+    console.log('DELETE USER');
+    await db.deleteUser(4);
 
     console.log('SELECT * FROM USER');
     const usuarios = await db.selectUsers();

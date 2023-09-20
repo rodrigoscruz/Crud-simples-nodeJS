@@ -31,4 +31,10 @@ async function updateUser(id, user){
     await conn.query(sql, values);
 }
 
-module.exports = {selectUsers, insertUser, updateUser}
+async function deleteUser(id){
+    const conn = await connect();
+    const sql = 'DELETE FROM user WHERE iduser=?;';
+    await conn.query(sql, [id]);
+}
+
+module.exports = {selectUsers, insertUser, updateUser, deleteUser}
